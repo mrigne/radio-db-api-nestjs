@@ -20,4 +20,11 @@ export class AuthController {
             token: this.authService.login(req.user)
         };
     }
+
+    @Post('refresh')
+    public refresh(@Request() req): IResponseWithToken {
+        return {
+            token: this.authService.login(req.user)
+        };
+    }
 }

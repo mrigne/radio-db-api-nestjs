@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
-import { JWT_AUDIENCE, JWT_ISSUER, JWT_SECRET_KEY } from '../../constants/jwt.constant';
+import { JWT_AUDIENCE, JWT_EXPIRES_IN, JWT_ISSUER, JWT_SECRET_KEY } from '../../constants/jwt.constant';
 import { UserModule } from '../user/user.module';
 import { AuthController } from './controllers/auth.controller';
 import { AuthService } from './services/auth.service';
@@ -12,7 +12,7 @@ import { LocalStrategy } from './strategies/local.strategy';
         UserModule,
         JwtModule.register({
             signOptions: {
-                expiresIn: '1d',
+                expiresIn: JWT_EXPIRES_IN,
                 issuer: JWT_ISSUER,
                 audience: JWT_AUDIENCE
             },

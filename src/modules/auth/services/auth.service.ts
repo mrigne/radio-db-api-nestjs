@@ -28,8 +28,6 @@ export class AuthService {
             username: user.userName,
             sub: user.userId
         };
-        return this.jwtService.sign(payload, {
-
-        });
+        return this.jwtService.sign(payload);
     }
 }
